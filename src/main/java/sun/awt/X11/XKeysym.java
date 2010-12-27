@@ -172,16 +172,42 @@ public class XKeysym {
     
     static final Hashtable<Long, Long> neo2level4Hacks = new Hashtable<Long,Long>(16);
     static {
-    	neo2level4Hacks.put(XKeySymConstants.XK_i, XKeySymConstants.XK_Left);
-    	neo2level4Hacks.put(XKeySymConstants.XK_e, XKeySymConstants.XK_Right);
-    	neo2level4Hacks.put(XKeySymConstants.XK_l, XKeySymConstants.XK_Up);
-    	neo2level4Hacks.put(XKeySymConstants.XK_a, XKeySymConstants.XK_Down);
-    	neo2level4Hacks.put(XKeySymConstants.XK_v, XKeySymConstants.XK_BackSpace);
-    	neo2level4Hacks.put(XKeySymConstants.XK_c, XKeySymConstants.XK_Delete);
-    	neo2level4Hacks.put(XKeySymConstants.XK_u, XKeySymConstants.XK_Home);
-    	neo2level4Hacks.put(XKeySymConstants.XK_o, XKeySymConstants.XK_End);
-    	neo2level4Hacks.put(XKeySymConstants.XK_p, XKeySymConstants.XK_Return);
-    	neo2level4Hacks.put(XKeySymConstants.XK_odiaeresis, XKeySymConstants.XK_Tab);
+        neo2level4Hacks.put(XKeySymConstants.XK_i, XKeySymConstants.XK_Left);
+        neo2level4Hacks.put(XKeySymConstants.XK_e, XKeySymConstants.XK_Right);
+        neo2level4Hacks.put(XKeySymConstants.XK_l, XKeySymConstants.XK_Up);
+        neo2level4Hacks.put(XKeySymConstants.XK_a, XKeySymConstants.XK_Down);
+        neo2level4Hacks.put(XKeySymConstants.XK_v, XKeySymConstants.XK_BackSpace);
+        neo2level4Hacks.put(XKeySymConstants.XK_c, XKeySymConstants.XK_Delete);
+        neo2level4Hacks.put(XKeySymConstants.XK_u, XKeySymConstants.XK_Home);
+        neo2level4Hacks.put(XKeySymConstants.XK_o, XKeySymConstants.XK_End);
+        neo2level4Hacks.put(XKeySymConstants.XK_p, XKeySymConstants.XK_Return);
+        neo2level4Hacks.put(XKeySymConstants.XK_odiaeresis, XKeySymConstants.XK_Tab);
+        neo2level4Hacks.put(XKeySymConstants.XK_8, XKeySymConstants.XK_Tab);
+        neo2level4Hacks.put(XKeySymConstants.XK_z, XKeySymConstants.XK_Undo);
+        neo2level4Hacks.put(XKeySymConstants.XK_udiaeresis, XKeySymConstants.XK_Escape);
+        neo2level4Hacks.put(XKeySymConstants.XK_adiaeresis, XKeySymConstants.XK_Insert);
+        neo2level4Hacks.put(XKeySymConstants.XK_w, XKeySymConstants.XK_Page_Down);
+        neo2level4Hacks.put(XKeySymConstants.XK_x, XKeySymConstants.XK_Page_Up);
+        neo2level4Hacks.put(XKeySymConstants.XK_space, XKeySymConstants.XK_0);
+        neo2level4Hacks.put(XKeySymConstants.XK_m, XKeySymConstants.XK_1);
+        neo2level4Hacks.put(XKeySymConstants.XK_comma, XKeySymConstants.XK_2);
+        neo2level4Hacks.put(XKeySymConstants.XK_period, XKeySymConstants.XK_3);
+        neo2level4Hacks.put(XKeySymConstants.XK_n, XKeySymConstants.XK_4);
+        neo2level4Hacks.put(XKeySymConstants.XK_r, XKeySymConstants.XK_5);
+        neo2level4Hacks.put(XKeySymConstants.XK_t, XKeySymConstants.XK_6);
+        neo2level4Hacks.put(XKeySymConstants.XK_h, XKeySymConstants.XK_7);
+        neo2level4Hacks.put(XKeySymConstants.XK_g, XKeySymConstants.XK_8);
+        neo2level4Hacks.put(XKeySymConstants.XK_f, XKeySymConstants.XK_9);
+        neo2level4Hacks.put(XKeySymConstants.XK_q, XKeySymConstants.XK_plus);
+        neo2level4Hacks.put(XKeySymConstants.XK_ssharp, XKeySymConstants.XK_minus);
+        neo2level4Hacks.put(XKeySymConstants.XK_0, XKeySymConstants.XK_asterisk);
+        neo2level4Hacks.put(XKeySymConstants.XK_9, XKeySymConstants.XK_slash);
+        neo2level4Hacks.put(XKeySymConstants.XK_d, XKeySymConstants.XK_comma);
+        neo2level4Hacks.put(XKeySymConstants.XK_y, XKeySymConstants.XK_period);
+        neo2level4Hacks.put(XKeySymConstants.XK_j, XKeySymConstants.XK_semicolon);
+        neo2level4Hacks.put(XKeySymConstants.XK_b, XKeySymConstants.XK_colon);
+        neo2level4Hacks.put(XKeySymConstants.XK_s, XKeySymConstants.XK_questiondown);
+        neo2level4Hacks.put(XKeySymConstants.XK_k, XKeySymConstants.XK_exclamdown);
     }
     
     /**

@@ -4,7 +4,7 @@
   <groupId>eu.henkelmann</groupId>
   <artifactId>neo2-awt-hack</artifactId>
   <packaging>jar</packaging>
-  <version>0.1</version>
+  <version>0.2</version>
   <name>neo2-awt-hack</name>
   <url>http://maven.apache.org</url>
   <dependencies>
