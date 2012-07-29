@@ -1,3 +1,13 @@
+*Important Notice*
+While this version compiles with Java 7, it is absolutely useless :)
+
+In Java 7, the NEO2 Keyboard layout works fine out of the box, so no need to bother with this hack.
+
+If you use Java 6, the hack in the "Java 6" branch should work for you.
+
+For Java 5, use version 0.2, you can find a binary download here: 
+http://maven.henkelmann.eu/eu/henkelmann/neo2-awt-hack/0.2/neo2-awt-hack-0.2.jar
+
 # NEO2 AWT Hack #
 
 This is the version for Java 7.
