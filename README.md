@@ -1,4 +1,5 @@
 *Important Notice*
+
 In Java 7 and higher, the NEO2 Keyboard layout works fine out of the box with most programs, so you prabably need not bother with this hack.
 
 The only exception is Android Studio / IntelliJ, where the main editor component is so customized that it handles the AWT events differently
@@ -7,6 +8,7 @@ from normal text edit widgets. (See https://youtrack.jetbrains.com/issue/IDEA-11
 If you use Java 6, the hack in the "Java 6" branch should work for you. (forgot to backup a binary somewhere - sorry)
 
 *Even More Important Notice*
+
 THIS IS A VERY NASTY HACK/WORKAROUND. I TAKE *NO* RESPONSIBLE WHATSOEVER TO ANY DAMAGE IT MIGHT CAUSE!
 
 # NEO2 AWT Hack #
@@ -21,11 +23,11 @@ This is a nasty hack to enable the neo 2 keyboard layout in IntelliJ under X11 (
 For information on the neo 2 keyboard layout see: http://www.neo-layout.org/
 Usage of this hack is a workaround for the following issue: http://wiki.neo-layout.org/ticket/364
 
-## Why? ##
+##Why?
 The neo 2 keyboard layout uses additional modifiers that enable additional 
 keyboard layers. These do not work in the IntelliJ main editor widget.
 
-## How? ## 
+##How? 
 This hack contains a modified version of the java class 
 `java.awt.KeyEvent`. This modified version contains an additional lookup into a hardcoded
 array that maps to the appropriate key code if one of the known broken keys is pressed.
@@ -54,4 +56,4 @@ For Android Studio the file is `studio.vmoptions` or `studio64.vmoptions`
 
 ## Download ##
 
-You can download a binary from https://github.com/chenkelmann/neo2-awt-hack/tree/master/releases/neo2-awt-hack-0.4-java8oracle-intellij.jar
+You can download a binary from https://github.com/chenkelmann/neo2-awt-hack/blob/master/releases/neo2-awt-hack-0.4-java8oracle.jar?raw=true
