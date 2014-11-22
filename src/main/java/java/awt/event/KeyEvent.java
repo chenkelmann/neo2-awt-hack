@@ -965,8 +965,6 @@ public class KeyEvent extends InputEvent {
         neo2level4Hacks[VK_E] = VK_RIGHT;
         neo2level4Hacks[VK_L] = VK_UP;
         neo2level4Hacks[VK_A] = VK_DOWN;
-        neo2level4Hacks[VK_V] = VK_BACK_SPACE;
-        neo2level4Hacks[VK_C] = VK_DELETE;
         neo2level4Hacks[VK_U] = VK_HOME;
         neo2level4Hacks[VK_O] = VK_END;
         neo2level4Hacks[VK_P] = VK_ENTER;
@@ -1055,9 +1053,13 @@ public class KeyEvent extends InputEvent {
         } else if (keyChar == VK_ESCAPE && keyLocation == 1 && keyCode == 0) {//escape on key 'ü'
             //System.out.println("using neo esc");
             this.keyCode = VK_ESCAPE;
+        } else if (keyChar == VK_BACK_SPACE && keyLocation == 1 && keyCode == 'V') {
+            this.keyCode = VK_BACK_SPACE;
+        } else if (keyChar == VK_DELETE && keyLocation == 1 && keyCode == 'C') {
+            this.keyCode = VK_DELETE;
         //} else if () {  //i cannot find a way to detect "insert" :(
         //    this.keyCode = VK_INSERT;
-       //======================= end of ugly hack =========================
+        //======================= end of ugly hack =========================
         } else {
             //System.out.println("using normal keycode: " + keyCode);
             this.keyCode = keyCode;
