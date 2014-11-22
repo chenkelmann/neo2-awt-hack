@@ -13,8 +13,9 @@ THIS IS A VERY NASTY HACK/WORKAROUND. I TAKE *NO* RESPONSIBLE WHATSOEVER TO ANY 
 
 # NEO2 AWT Hack #
 
-This is the version for Java 8, Linux, official Oracle JDK.
-If you need a version for Java7 and/or OpenJDK, just get the source for the respective version of the `KeyEvent` class and apply the hack. To find the modified parts, just grep for "begin of ugly hack" in the current version.
+This is the version for Java 8, Linux, tested with official Oracle JDK (it should work on openjdk 8 as well).
+
+If you need a version for Java7, just get the source for the respective version of the `KeyEvent` class and apply the hack. To find the modified parts, just grep for "begin of ugly hack" in the current version.
 
 If you successfully use it for OpenJDK 8, please let me know.
 
