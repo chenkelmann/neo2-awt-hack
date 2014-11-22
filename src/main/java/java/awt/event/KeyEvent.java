@@ -1,26 +1,26 @@
 /*
  * Copyright (c) 1996, 2013, Oracle and/or its affiliates. All rights reserved.
- * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
  *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
  */
 
 package java.awt.event;
@@ -30,7 +30,6 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-
 import sun.awt.AWTAccessor;
 
 /**
@@ -967,7 +966,6 @@ public class KeyEvent extends InputEvent {
         neo2level4Hacks[VK_A] = VK_DOWN;
         neo2level4Hacks[VK_U] = VK_HOME;
         neo2level4Hacks[VK_O] = VK_END;
-        neo2level4Hacks[VK_P] = VK_ENTER;
         neo2level4Hacks[VK_Z] = VK_UNDO;
         neo2level4Hacks[VK_W] = VK_PAGE_DOWN;
         neo2level4Hacks[VK_X] = VK_PAGE_UP;
@@ -1039,7 +1037,6 @@ public class KeyEvent extends InputEvent {
             }
         }
 
-
         //======================= begin of ugly hack =========================
         //remapping of neo level 4 chars that are not supported by IntelliJ / AndroidStudio
         final int neoKeyCode = keyCode < neo2level4Hacks.length && keyCode >=0 ? neo2level4Hacks[keyCode] : 0;
@@ -1057,6 +1054,8 @@ public class KeyEvent extends InputEvent {
             this.keyCode = VK_BACK_SPACE;
         } else if (keyChar == VK_DELETE && keyLocation == 1 && keyCode == 'C') {
             this.keyCode = VK_DELETE;
+        } else if (keyChar == VK_ENTER && keyLocation == 1 && keyCode == 'P') {
+            this.keyCode = VK_ENTER;
         //} else if () {  //i cannot find a way to detect "insert" :(
         //    this.keyCode = VK_INSERT;
         //======================= end of ugly hack =========================
@@ -1065,10 +1064,7 @@ public class KeyEvent extends InputEvent {
             this.keyCode = keyCode;
         }
 
-
         this.keyChar = keyChar;
-
-
 
         if ((keyLocation < KEY_LOCATION_UNKNOWN) ||
             (keyLocation > KEY_LOCATION_NUMPAD)) {
