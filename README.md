@@ -19,7 +19,7 @@ If you need a version for Java7, just get the source for the respective version 
 
 If you successfully use it for OpenJDK 8, please let me know.
 
-This is a nasty hack to enable the neo 2 keyboard layout in IntelliJ under X11 (e.g. Linux). 
+This is a nasty hack to enable the neo 2 keyboard layout in IntelliJ / Android Studio / PyCharm under X11 (e.g. Linux). 
 
 For information on the neo 2 keyboard layout see: http://www.neo-layout.org/
 Usage of this hack is a workaround for the following issue: http://wiki.neo-layout.org/ticket/364
@@ -54,6 +54,9 @@ For IntelliJ, you have to modify your `idea.vmoptions` file and add the followin
     -Xbootclasspath/p:/your/path/to/the/jar/neo2-awt-hack-0.4-java8oracle.jar
     
 For Android Studio the file is `studio.vmoptions` or `studio64.vmoptions`
+For PyCharm it is `pycharm.vmoptions` or `pycharm64.vmoptions`.
+
+The `vmoptions` files of IntelliJ based IDEs can be found in the `bin` folder of the IDE installation.
 
 ## Download ##
 
