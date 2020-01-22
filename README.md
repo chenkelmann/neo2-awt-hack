@@ -19,17 +19,17 @@ If you need a version for Java7, just get the source for the respective version 
 
 If you successfully use it for OpenJDK 8, please let me know.
 
-This is a nasty hack to enable the neo 2 keyboard layout in IntelliJ / Android Studio / PyCharm under X11 (e.g. Linux). 
+This is a nasty hack to enable the neo 2 keyboard layout in IntelliJ / Android Studio / PyCharm under X11 (e.g. Linux).
 
 For information on the neo 2 keyboard layout see: http://www.neo-layout.org/
 Usage of this hack is a workaround for the following issue: http://wiki.neo-layout.org/ticket/364
 
 ##Why?
-The neo 2 keyboard layout uses additional modifiers that enable additional 
+The neo 2 keyboard layout uses additional modifiers that enable additional
 keyboard layers. These do not work in the IntelliJ main editor widget.
 
-##How? 
-This hack contains a modified version of the java class 
+##How?
+This hack contains a modified version of the java class
 `java.awt.KeyEvent`. This modified version contains an additional lookup into a hardcoded
 array that maps to the appropriate key code if one of the known broken keys is pressed.
 
@@ -42,22 +42,49 @@ Simply compile with maven: `mvn clean package`
 
 ## Using it ##
 
-Add it to the bootclasspath of your java application like so: 
+Add it to the bootclasspath of your java application like so:
 
-    java -Xbootclasspath/p:/your/path/to/the/jar/neo2-awt-hack-0.4-java8oracle.jar -cp foo.jar com.example.Foo
+    java -Xbootclasspath/p:/your/path/to/the/jar/neo2-awt-hack-0.5-java8oracle.jar -cp foo.jar com.example.Foo
 
-Most java applications are started using some script, in this case you either 
+Most java applications are started using some script, in this case you either
 have to modify the script or some config file that contains parameters for the JVM.
 
-For IntelliJ, you have to modify your `idea.vmoptions` file and add the following line: 
+For IntelliJ, you have to modify your `idea.vmoptions` file and add the following line:
 
-    -Xbootclasspath/p:/your/path/to/the/jar/neo2-awt-hack-0.4-java8oracle.jar
-    
+    -Xbootclasspath/p:/your/path/to/the/jar/neo2-awt-hack-0.5-java8oracle.jar
+
 For Android Studio the file is `studio.vmoptions` or `studio64.vmoptions`
 For PyCharm it is `pycharm.vmoptions` or `pycharm64.vmoptions`.
 
 The `vmoptions` files of IntelliJ based IDEs can be found in the `bin` folder of the IDE installation.
 
+### JDK 9+
+
+Since JDK 9 the option `-Xbootclasspath/p` is not available anymore. It was replaced
+with `--patch-module` which has to be used like so:
+
+    --patch-module java.desktop=/your/path/to/the/jar/neo2-awt-hack-0.5-java8oracle.jar
+
+This can not be added to the `vmoptions` since it is a cli parameter. So to add it,
+you must find the startup script for pycharm or whatever you want to hack and add
+it to the actual java cli call (which is usually the last thing in the script).
+
+E.g. the last lines in my `clion.sh` now look (almost) like this:
+
+    "$JAVA_BIN" \
+      -classpath "$CLASSPATH" \
+      ${VM_OPTIONS} \
+      "-XX:ErrorFile=$HOME/java_error_in_CLION_%p.log" \
+      "-XX:HeapDumpPath=$HOME/java_error_in_CLION.hprof" \
+      -Didea.paths.selector=CLion2019.3 \
+      "-Djb.vmOptionsFile=$VM_OPTIONS_FILE" \
+      ${IDE_PROPERTIES_PROPERTY} \
+      -Didea.platform.prefix=CLion \
+      --patch-module java.desktop=/your/path/to/the/jar/neo2-awt-hack-0.5-java8oracle.jar \
+      com.intellij.idea.Main \
+      "$@"
+
+
 ## Download ##
 
-You can download a binary from https://github.com/chenkelmann/neo2-awt-hack/blob/master/releases/neo2-awt-hack-0.4-java8oracle.jar?raw=true
+You can download a binary from https://github.com/chenkelmann/neo2-awt-hack/blob/master/releases/neo2-awt-hack-0.5-java8oracle.jar?raw=true

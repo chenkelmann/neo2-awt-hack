@@ -917,6 +917,10 @@ public class KeyEvent extends InputEvent {
 
         AWTAccessor.setKeyEventAccessor(
             new AWTAccessor.KeyEventAccessor() {
+                public boolean isProxyActive(final KeyEvent e) {
+                    return false;
+                }
+
                 public void setRawCode(final KeyEvent ev, final long rawCode) {
                     ev.rawCode = rawCode;
                 }
