@@ -4,12 +4,12 @@
   <groupId>eu.henkelmann</groupId>
   <artifactId>neo2-awt-hack</artifactId>
   <packaging>jar</packaging>
-  <version>0.4-java8oracle</version>
+  <version>0.5-java8oracle</version>
   <name>neo2-awt-hack</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-  </dependencies>  
-  
+  </dependencies>
+
   <distributionManagement>
     <repository>
       <id>development-repository</id>
