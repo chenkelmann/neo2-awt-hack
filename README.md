@@ -2,13 +2,20 @@
 
 In Java 7 and higher, the NEO2 Keyboard layout works fine out of the box with most programs, so you prabably need not bother with this hack. 
 
-The only exception is Android Studio / IntelliJ, where the main editor component is so customized that it handles the AWT events differently from normal text edit widgets. (See https://youtrack.jetbrains.com/issue/IDEA-113997 and http://wiki.neo-layout.org/ticket/364)
+For Android Studio / IntelliJ / PyCharm you also do not need this hack anymore - you can apply the solution described in the following jetbrains ticket instead: 
+https://youtrack.jetbrains.com/issue/IDEA-197762
 
-If you use Java 6, the hack in the "Java 6" branch should work for you. (forgot to backup a binary somewhere - sorry)
+> Enable "Settings | Keymap | Use national keyboards for shortcuts".
+
+---------------------------------------------------------------
 
 *Even More Important Notice*
 
 THIS IS A VERY NASTY HACK/WORKAROUND. I TAKE *NO* RESPONSIBLE WHATSOEVER TO ANY DAMAGE IT MIGHT CAUSE!
+
+----------------------------------------------------------------
+
+The following instructions are kept for archive reasons - you really should not need to use this hack anymore! (see above)
 
 # NEO2 AWT Hack #
 
@@ -39,6 +46,10 @@ Simply compile with maven: `mvn clean package`
 
 ## Using it ##
 
+### JDK 6 
+
+If you use Java 6, the hack in the "Java 6" branch should work for you. (forgot to backup a binary somewhere - sorry)
+
 ### JDK 8
 For Java 8, add it to the bootclasspath of your java application like so:
 
@@ -63,23 +74,11 @@ with `--patch-module` which has to be used like so:
 
     --patch-module java.desktop=/your/path/to/the/jar/neo2-awt-hack-0.5-java8oracle.jar
 
-This can not be added to the `vmoptions` since it is a cli parameter. So to add it,
-you must find the startup script for your IntelliJ-based IDE (Idea, PyCharm, Android Studio, CLion etc.) you want to hack and add the above option to the actual java cli call (which is usually the last thing in the script).
-
-E.g. the last lines in a `clion.sh` or `idea.sh` now look (almost) like this:
-
-    "$JAVA_BIN" \
-      -classpath "$CLASSPATH" \
-      ${VM_OPTIONS} \
-      "-XX:ErrorFile=$HOME/java_error_in_CLION_%p.log" \
-      "-XX:HeapDumpPath=$HOME/java_error_in_CLION.hprof" \
-      -Didea.paths.selector=CLion2019.3 \
-      "-Djb.vmOptionsFile=$VM_OPTIONS_FILE" \
-      ${IDE_PROPERTIES_PROPERTY} \
-      -Didea.platform.prefix=CLion \
-      --patch-module java.desktop=/your/path/to/the/jar/neo2-awt-hack-0.5-java8oracle.jar \
-      com.intellij.idea.Main \
-      "$@"
+It can be added to the `vmoptions` file like so: 
+    
+    --patch-module=java.desktop=/your/path/to/the/jar/neo2-awt-hack-0.5-java8oracle.jar
+    
+(note the `=` after `patch-module`)       
 
 This also fixes problems with the bundled JDK, which works for most Neo 2 features but still has problems when the `shift` key is pressed when using Level 4 (e.g. cursor) keys.
 
